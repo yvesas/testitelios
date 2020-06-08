@@ -7,7 +7,7 @@
     <title>show</title>
   </head>
 
-  <body>
+  <body style="background-color: #f2f2f2;">
     <style>
       .container {
         display: flex;
@@ -52,10 +52,10 @@
         <input type='file' onchange="getPhoto(this);" style="margin: 10px;"/>
         <div class="row">
           <div class="box">
-            <img id='image1' src="" alt="Image" />
+            <img src="" class="custom-image" alt="Image" />
           </div>
           <div class="box">
-            <img id='image2' src="" class="portrait" alt="Image" />
+            <img src="" class="portrait custom-image" alt="Image" />
           </div>
         </div>
         
@@ -82,14 +82,12 @@
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    document.body.style.backgroundColor = "#f2f2f2";
+  <script>  
     function getPhoto(input) {
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-          $('#image1').attr('src', e.target.result);
-          $('#image2').attr('src', e.target.result);
+          $('.custom-image').attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
       }
