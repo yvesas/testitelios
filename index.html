@@ -1,55 +1,98 @@
-<html>
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head></head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show</title>
+  </head>
 
-<body>
-  <style>
-    .container {
-      display: flex;
-    }
+  <body>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+      }
+      .row {
+        display: flex;
+      }
 
-    .box {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      overflow: hidden;
-      border: 1px solid #000;
-      margin: 10px;
-    }
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border: 1px solid #000;
+        margin: 10px;
+        background-color: #000;
+      }
+      .box img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .box img.portrait {
+        width: 100%;
+        height: auto;
+      }
+    </style>
 
-    .box img {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      height: 100%;
-      width: auto;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
+    <div class="container">
+      <div class="column">
+        <h1>Try!</h1>
+        <input type='file' onchange="getPhoto(this);" style="margin: 10px;"/>
+        <div class="row">
+          <div class="box">
+            <img id='image1' src="" alt="Image" />
+          </div>
+          <div class="box">
+            <img id='image2' src="" class="portrait" alt="Image" />
+          </div>
+        </div>
+        
+        <br/>
 
-    .box img.portrait {
-      width: 100%;
-      height: auto;
-    }
-  </style>
-  <div class="container">
-    <div class="box">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" alt="Image" />
+        <h2>Samples</h2>
+        <div class="row">
+          <div class="box">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" alt="Image" />
+          </div>
+          <div class="box">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" class="portrait"
+              alt="Image" />
+          </div>
+          <div class="box">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" alt="Image" />
+          </div>
+          <div class="box">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" class="portrait"
+              alt="Image" />
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="box">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" class="portrait"
-        alt="Image" />
-    </div>
-    <div class="box">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" alt="Image" />
-    </div>
-    <div class="box">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" class="portrait"
-        alt="Image" />
-    </div>
-  </div>
-
-</body>
-
-</html>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    document.body.style.backgroundColor = "#f2f2f2";
+    function getPhoto(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#image1').attr('src', e.target.result);
+          $('#image2').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+  </html>

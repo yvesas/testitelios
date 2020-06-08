@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>upload</title>
+</head>
+
+<body>
+  <style>
+    .container {
+        display: flex;
+      }
+
+      .box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border: 1px solid #000;
+        margin: 10px;
+      }
+
+      .box img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+      .box img.portrait {
+        width: 100%;
+        height: auto;
+      }
+  </style>
+   <div class="container">
+    <div class="box">
+      <span>Upload</span>
+      <input type='file' onchange="getPhoto(this);" />
+    </div>
+    <div class="box">
+      <img src="..." alt="Profile image" id='image' class="profileImg">
+    </div>
+  </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function getPhoto(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#image')
+          .attr('src', e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+
+</html>
