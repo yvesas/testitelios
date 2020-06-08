@@ -1,15 +1,26 @@
 console.log("Running Desafio 1...");
 
-for (x=1; x <= 100; x++){
-  if( ( x % 3 == 0 ) && ( x % 5 == 0 ) ){
-    console.log("Itelios, part of Capgemini", x)
-  }else {
-    if( x % 3 == 0 ){
-      console.log("Itelios", x)
-    }
-    if( x % 5 == 0 ){
-      console.log("Capgemini", x)
+function isPrime(num) {
+  for(i=2; i < num; i++)
+    if(num % i === 0) return false;
+  return num !== 1;
+}
+
+for (i=1; i <= 100; i++){
+  if(isPrime(i)){
+    console.log("Número primo", i)
+  }else{
+    if( ( i % 3 == 0 ) && ( i % 5 == 0 ) ){
+      console.log("Itelios, part of Capgemini", i)
+    }else {
+      if( i % 3 == 0 ){
+        console.log("Itelios", i)
+      }
+      if( i % 5 == 0 ){
+        console.log("Capgemini", i)
+      }
     }
   }
   
 }
+
