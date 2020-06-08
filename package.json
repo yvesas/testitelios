@@ -4,7 +4,8 @@
   "description": "teste de logica e conhecimento",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "desafio1": "node desafio-1.js",
+    "desafio2": "node index.js"
   },
   "repository": {
     "type": "git",
