@@ -1,0 +1,55 @@
+<html>
+
+<head></head>
+
+<body>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border: 1px solid #000;
+      margin: 10px;
+    }
+
+    .box img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 100%;
+      width: auto;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .box img.portrait {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <div class="container">
+    <div class="box">
+      <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" alt="Image" />
+    </div>
+    <div class="box">
+      <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" class="portrait"
+        alt="Image" />
+    </div>
+    <div class="box">
+      <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" alt="Image" />
+    </div>
+    <div class="box">
+      <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" class="portrait"
+        alt="Image" />
+    </div>
+  </div>
+
+</body>
+
+</html>

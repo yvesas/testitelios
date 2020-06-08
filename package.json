@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/yvesas/testitelios/issues"
   },
-  "homepage": "https://github.com/yvesas/testitelios#readme"
+  "homepage": "https://github.com/yvesas/testitelios#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
