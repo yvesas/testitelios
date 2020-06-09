@@ -9,14 +9,11 @@
 
   <body style="background-color: #f2f2f2;">
     <style>
-      .container {
-        display: flex;
-        justify-content: center;
-      }
       .column {
         display: flex;
         flex-direction: column;
       }
+
       .row {
         display: flex;
       }
@@ -30,6 +27,7 @@
         margin: 10px;
         background-color: #000;
       }
+
       .box img {
         position: absolute;
         left: 50%;
@@ -40,57 +38,60 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
       }
+
       .box img.portrait {
         width: 100%;
         height: auto;
       }
+      .custom-image {
+        display: none;
+      }
     </style>
 
-    <div class="container">
-      <div class="column">
-        <h1>Try!</h1>
-        <input type='file' onchange="getPhoto(this);" style="margin: 10px;"/>
-        <div class="row">
-          <div class="box">
-            <img src="" class="custom-image" alt="Image" />
-          </div>
-          <div class="box">
-            <img src="" class="portrait custom-image" alt="Image" />
-          </div>
+    <div class="column">
+      <h1>Try!</h1>
+      <input type='file' onchange="getPhoto(this);" style="margin: 10px;" />
+      <div class="row">
+        <div class="box">
+          <img src="" class="custom-image" alt="Image"/>
         </div>
-        
-        <br/>
+        <div class="box">
+          <img src="" class="portrait custom-image" alt="Image"/>
+        </div>
+      </div>
 
-        <h2>Samples</h2>
-        <div class="row">
-          <div class="box">
-            <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" alt="Image" />
-          </div>
-          <div class="box">
-            <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" class="portrait"
-              alt="Image" />
-          </div>
-          <div class="box">
-            <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" alt="Image" />
-          </div>
-          <div class="box">
-            <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" class="portrait"
-              alt="Image" />
-          </div>
+      <br />
+
+      <h2>Samples</h2>
+      <div class="row">
+        <div class="box">
+          <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" alt="Image" />
+        </div>
+        <div class="box">
+          <img src="http://upload.wikimedia.org/wikipedia/commons/7/75/Zacharias_Wagner_-_Mameluca.jpg" class="portrait"
+            alt="Image" />
+        </div>
+        <div class="box">
+          <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" alt="Image" />
+        </div>
+        <div class="box">
+          <img src="http://upload.wikimedia.org/wikipedia/commons/4/44/Docteur_Piron_-_La_Bonite.JPG" class="portrait"
+            alt="Image" />
         </div>
       </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>  
+  <script>
     function getPhoto(input) {
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-          $('.custom-image').attr('src', e.target.result);
+          $('.custom-image').attr('src', e.target.result).show("slow");
         };
         reader.readAsDataURL(input.files[0]);
       }
     }
   </script>
+
   </html>
